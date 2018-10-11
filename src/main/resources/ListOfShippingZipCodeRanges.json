@@ -1,0 +1,14 @@
+[
+  {
+    "lowerRange": {"code": 94133},
+    "upperRange": {"code": 94133}
+  },
+  {
+    "lowerRange": {"code": 94200},
+    "upperRange": {"code": 94299}
+  },
+  {
+    "lowerRange": {"code": 94600},
+    "upperRange": {"code": 94699}
+  }
+]
