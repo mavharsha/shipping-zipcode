@@ -4,7 +4,7 @@ A project where a shipment of a product is delivery is determined by consolidati
 of zip code ranges.
 
 ##### BACKGROUND
-
+---
 Sometimes items cannot be shipped to certain zip codes, and the rules for these restrictions are stored as a series of ranges of 5 digit codes. 
 For example if the ranges are:
 
@@ -15,6 +15,7 @@ Then the item can be shipped to zip code 94199, 94300, and 65532, but cannot be 
 Any item might be restricted based on multiple sets of these ranges obtained from multiple sources.
 
 ###### PROBLEM
+---
 Given a collection of 5-digit ZIP code ranges (each range includes both their upper and lower bounds), 
 provide an algorithm that produces the minimum number of ranges required to represent the same restrictions as the input.
 
@@ -52,7 +53,7 @@ mvn test
 ```
 
 #### Others
-Location of input file (dataSource):  ```src/main/resources```
+Location of input file (dataSource):  ```src/main/resources/ListOfShippingZipCodeRanges.json```
 
 
 
