@@ -1,7 +1,5 @@
 package com.mavharsha.ecom.model;
 
-import com.mavharsha.ecom.service.IShippingService;
-import com.mavharsha.ecom.service.ShippingService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -9,7 +7,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -67,17 +64,17 @@ public class ZipCodeRangePOJOTest {
     public void testShouldValidateIsZipCodeMergeable() {
 
         assertThat(zipCodeRange.isRangeMergeable(new ZipCodeRange(10000, 10000)))
-                .as("When both ranges are equal, ranges should be mergeable").isTrue();
+                .as("When both ranges are equal, ranges should be mergeable.").isTrue();
         zipCodeRange = new ZipCodeRange(95670, 96670);
         assertThat(zipCodeRange.isRangeMergeable(new ZipCodeRange(96000, 96300)))
-                .as("When range overlaps completely, ranges should be mergeable").isTrue();
+                .as("When range overlaps completely, ranges should be mergeable.").isTrue();
         assertThat(zipCodeRange.isRangeMergeable(new ZipCodeRange(96000, 97300)))
-                .as("When range overlaps, ranges should be mergeable").isTrue();
+                .as("When range overlaps, ranges should be mergeable.").isTrue();
 
         assertThat(zipCodeRange.isRangeMergeable(new ZipCodeRange(76000, 77300)))
-                .as("When range don't overlaps, ranges shouldn't be mergeable").isFalse();
+                .as("When range don't overlaps, ranges shouldn't be mergeable.").isFalse();
         assertThat(zipCodeRange.isRangeMergeable(new ZipCodeRange(12345, 54321)))
-                .as("When range don't overlaps, ranges shouldn't be mergeable").isFalse();
+                .as("When range don't overlaps, ranges shouldn't be mergeable.").isFalse();
     }
 
 

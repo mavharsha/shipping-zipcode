@@ -10,7 +10,7 @@ import java.util.List;
 public interface IShippingService {
     List<ZipCodeRange> getListZipCodeRanges() throws IOException;
 
-    List<ZipCodeRange> getConsolidatedShippableZipCodeRanges() throws Exception;
+    List<ZipCodeRange> getConsolidatedShippableZipCodeRanges() throws IOException;
 
-    boolean canBeShippedToZipCode(@NonNull ZipCode zipCode) throws Exception;
+    boolean canBeShippedToZipCode(@NonNull ZipCode zipCode) throws IOException;
 }

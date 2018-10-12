@@ -2,7 +2,6 @@ package com.mavharsha.ecom.model;
 
 import com.google.common.base.Preconditions;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
 
@@ -11,6 +10,7 @@ import java.util.Comparator;
 @ToString
 @EqualsAndHashCode
 public class ZipCodeRange implements Comparable<ZipCodeRange> {
+
     private final ZipCode lowerRange;
     private final ZipCode upperRange;
 
@@ -36,8 +36,8 @@ public class ZipCodeRange implements Comparable<ZipCodeRange> {
 
 
     /**
-     * @param lowerRange  lowerBound of the ZipCodeRange
-     * @param upperRange  upperBound of the ZipCodeRange
+     * @param lowerRange lowerBound of the ZipCodeRange
+     * @param upperRange upperBound of the ZipCodeRange
      * @throws IllegalArgumentException if lowerRange is greater than upperRange
      */
     private void validateRanges(int lowerRange, int upperRange) throws IllegalArgumentException {
@@ -47,7 +47,7 @@ public class ZipCodeRange implements Comparable<ZipCodeRange> {
 
     /**
      * @param range A ZipCodeRange
-     * @return true if both zipCodeRanges overlap, else false
+     * @return true if current zipCodeRange(this) and range overlap, else false
      */
     public boolean isRangeMergeable(@NonNull ZipCodeRange range) {
         if (this.compareTo(range) == 0) {
@@ -91,13 +91,15 @@ public class ZipCodeRange implements Comparable<ZipCodeRange> {
         if (this.compareTo(zipCodeRange) == 0) {
             return new ZipCodeRange(this.getLowerRange(), this.getUpperRange());
         } else if (this.compareTo(zipCodeRange) < 0) {
-            if (this.isZipCodeInRange(zipCodeRange.getLowerRange()) && this.isZipCodeInRange(zipCodeRange.getUpperRange())) {
+            if (this.isZipCodeInRange(zipCodeRange.getLowerRange())
+                    && this.isZipCodeInRange(zipCodeRange.getUpperRange())) {
                 return new ZipCodeRange(this.getLowerRange(), this.getUpperRange());
             } else {
                 return new ZipCodeRange(this.getLowerRange(), zipCodeRange.getUpperRange());
             }
         } else {
-            if (zipCodeRange.isZipCodeInRange(this.getLowerRange()) && zipCodeRange.isZipCodeInRange(this.getUpperRange())) {
+            if (zipCodeRange.isZipCodeInRange(this.getLowerRange())
+                    && zipCodeRange.isZipCodeInRange(this.getUpperRange())) {
                 return new ZipCodeRange(zipCodeRange.getLowerRange(), zipCodeRange.getUpperRange());
             } else {
                 return new ZipCodeRange(zipCodeRange.getLowerRange(), this.getUpperRange());

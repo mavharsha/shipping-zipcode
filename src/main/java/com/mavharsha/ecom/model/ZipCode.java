@@ -6,8 +6,8 @@ import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode
-public class ZipCode implements Comparable<ZipCode>{
-    
+public class ZipCode implements Comparable<ZipCode> {
+
     private final int code;
     public static final String errorZipCodeFiveDigits = "ZipCode should be 5 digits positive integer.";
 
@@ -32,8 +32,8 @@ public class ZipCode implements Comparable<ZipCode>{
     /**
      * @param zipCode
      * @return 0 when both objects are equal,
-     *         > 0 when current is greater than zipCode
-     *         < 0 when current is smaller than zipCode
+     * > 0 when current is greater than zipCode
+     * < 0 when current is smaller than zipCode
      */
     public int compareTo(ZipCode zipCode) {
         return Integer.compare(this.code, zipCode.code);

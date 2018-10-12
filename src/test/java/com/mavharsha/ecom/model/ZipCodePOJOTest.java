@@ -27,7 +27,6 @@ public class ZipCodePOJOTest {
     /*
     * Exception Cases
     * */
-
     @Test
     public void testShouldThrowExceptionIfZipCodeIsNotFiveDigits() {
         thrown.expect(IllegalArgumentException.class);
@@ -41,11 +40,11 @@ public class ZipCodePOJOTest {
 
     @Test
     public void testShouldReturnCorrectZipCode() {
-        assertThat(zipCode.getCode()).as("Should return 10000").isEqualTo(10000);
+        assertThat(zipCode.getCode()).as("Should return 10000.").isEqualTo(10000);
         zipCode = new ZipCode(95670);
-        assertThat(zipCode.getCode()).as("Should return 95670").isEqualTo(95670);
+        assertThat(zipCode.getCode()).as("Should return 95670.").isEqualTo(95670);
         zipCode = new ZipCode(99999);
-        assertThat(zipCode.getCode()).as("Should return 99999").isEqualTo(99999);
+        assertThat(zipCode.getCode()).as("Should return 99999.").isEqualTo(99999);
     }
 
     @Test
@@ -53,8 +52,8 @@ public class ZipCodePOJOTest {
         ZipCode lowerRange = new ZipCode(10000);
         ZipCode upperRange = new ZipCode(10001);
         assertThat(lowerRange.compareTo(upperRange)).as("Should return -1.").isEqualTo(-1);
-        assertThat(upperRange.compareTo(lowerRange)).as("Should return 1").isEqualTo(1);
-        assertThat(upperRange.compareTo(upperRange)).as("Should return 0 as both are equal").isEqualTo(0);
+        assertThat(upperRange.compareTo(lowerRange)).as("Should return 1.").isEqualTo(1);
+        assertThat(upperRange.compareTo(upperRange)).as("Should return 0 as both are equal.").isEqualTo(0);
     }
 
 }
